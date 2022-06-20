@@ -1,3 +1,4 @@
+
 header{
     background-color: cornflowerblue;
     text-align: center;
@@ -9,10 +10,14 @@ header h1{
     font-size: 50px;
     color: bisque;
 }
-p{
+.welcome-page{
+
+}
+.welcome-page p{
     font-size: 35px;
     text-align: center;
     line-height: 1.5;
+    margin: 20px;
 }
 .button{
     text-align: center;
@@ -23,6 +28,12 @@ p{
     font-size: 20px;
     text-align: center;
 }
+.answers{
+    display: block;
+}
+/*#hide{
+    display: none;*/
+
 footer{
     background-color: cornflowerblue;
     color:bisque;

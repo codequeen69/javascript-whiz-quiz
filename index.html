@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>JavaScript Whiz Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
@@ -9,6 +11,7 @@
     <header>
         <h1> Welcome to the JavaScript Whiz Quiz!</h1>
     </header>
+    <main class = "welcome-page">
         <p>
             Welcome! The JavaScript Whiz Quiz is here to help you test your knowledge of all things JavaScript.
             Once you click the button to start the game, a timer will be started and your first quiz question will appear.
@@ -18,6 +21,25 @@
         <div class="button">
             <button class="btn" id="start-quiz" type="click">Start Quiz!</button>
         </div>
+    </main>
+    <section class="question-container" id="hide">
+    <div id="question">Question</div>
+    <div class = "answers">
+   <label>    
+<input type="radio" name="answer" id="answer-1">
+</label>
+<label>
+<input type ="radio" name="answer" id="answer-2">
+</label>
+<label>
+<input type ="radio" name="answer" id="answer-3">
+</label>
+<label>
+<input type="radio" name="answer" id="answer-4">
+<label></label>
+    </div>
+
+    </section>
         <footer>
             &copy;2022 Camille Howe
         </footer>

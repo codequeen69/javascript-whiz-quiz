@@ -28,11 +28,24 @@ header h1{
     font-size: 20px;
     text-align: center;
 }
-.answers{
-    display: block;
+#question{
+    text-align: center;
+    font-size: 30px;
+    color: bisque;
+    background-color: cornflowerblue;
+    margin: 20px;
 }
-/*#hide{
-    display: none;*/
+.answers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.answer-container{
+    
+}
+#hide{
+    display: none;
+}
 
 footer{
     background-color: cornflowerblue;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -7,15 +8,18 @@
     <title>JavaScript Whiz Quiz</title>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
     <header>
         <h1> Welcome to the JavaScript Whiz Quiz!</h1>
     </header>
-    <main class = "welcome-page">
+    <main class="welcome-page">
         <p>
             Welcome! The JavaScript Whiz Quiz is here to help you test your knowledge of all things JavaScript.
-            Once you click the button to start the game, a timer will be started and your first quiz question will appear.
-            Each question is worth two points. If you answer a question incorrectly, the timer will decriment by 5 seconds.
+            Once you click the button to start the game, a timer will be started and your first quiz question will
+            appear.
+            Each question is worth two points. If you answer a question incorrectly, the timer will decriment by 5
+            seconds.
             Have fun and good luck!
         </p>
         <div class="button">
@@ -23,26 +27,34 @@
         </div>
     </main>
     <section class="question-container" id="hide">
-    <div id="question">Question</div>
-    <div class = "answers">
-   <label>    
-<input type="radio" name="answer" id="answer-1">
-</label>
-<label>
-<input type ="radio" name="answer" id="answer-2">
-</label>
-<label>
-<input type ="radio" name="answer" id="answer-3">
-</label>
-<label>
-<input type="radio" name="answer" id="answer-4">
-<label></label>
-    </div>
+        <div id="question">Question</div>
+        <div class="answer-container">
+            <span class="answers">
+                <input type="radio" name="answer" id="answer-1">
+                <label class="answer">ANSWER</label>
+            </span>
+
+            <span class="answers">
+                <input type="radio" name="answer" id="answer-2">
+                <label class="answer">ANSWER</label>
+            </span>
+
+            <span class="answers">
+                <input type="radio" name="answer" id="answer-3">
+                <label class="answer">ANSWER</label>
+            </span>
+
+            <span class="answers">
+                <input type="radio" name="answer" id="answer-4">
+                <label class="answer">ANSWER</label>
+            </span>
+        </div>
 
     </section>
-        <footer>
-            &copy;2022 Camille Howe
-        </footer>
+    <footer>
+        &copy;2022 Camille Howe
+    </footer>
     <script src="./assets/js/script.js"></script>
 </body>
+
 </html>

@@ -1,15 +1,13 @@
+//Global Variables
 var startButtonEl = document.querySelector("#start-quiz");
 var questionContainerEl = document.querySelector(".question-container");
 var welcomePageEl = document.querySelector(".welcome-page");
 startButtonEl.addEventListener("click", startGame);
+var questionEl = document.querySelector("#question");
+var answerEl = document.querySelector(".answer-container");
 var timeLeftCounter = undefined;
 
-//Game question appears and timer starts
-function startGame () {
-    questionContainerEl.classList.remove("hide");
-    welcomePageEl.classList.add("hide");
-    showQuestion();
-};
+//Questions array
 var questions = [
     {
         question: "The DOM is an API that stands for",
@@ -38,3 +36,14 @@ var questions = [
     }
 
 ]
+
+//Game question appears and timer starts
+function startGame () {
+    questionContainerEl.style.display = "block";
+    welcomePageEl.style.display= "none";
+    showQuestions();
+};
+//Bring up questions from the questions array
+function showQuestions(questions){
+questionEl.textContent = questions.question
+}

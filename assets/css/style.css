@@ -31,8 +31,8 @@ header h1{
 #question{
     text-align: center;
     font-size: 30px;
-    color: bisque;
-    background-color: cornflowerblue;
+    color: cornflowerblue;
+    background-color: bisque;
     margin: 20px;
 }
 .answers{

@@ -6,9 +6,9 @@ var welcomePageEl = document.querySelector(".welcome-page");
 startButtonEl.addEventListener("click", startGame);
 var questionEl = document.querySelector("#question");
 var choiceEl = document.querySelector(".choice-container");
-var timeLeftCounter = 60;
-var timerInterval;
+var timeSeconds = 60;
 var index = 0;
+var countDownEl= document.querySelector('#count-down');
 
 
 
@@ -47,6 +47,7 @@ function startGame () {
     questionContainerEl.style.display = "block";
     welcomePageEl.style.display= "none";
     displayQuestion();
+    countDown();
    
 };
 function displayQuestion(){
@@ -59,25 +60,27 @@ document.getElementById("question").appendChild(questionEl);
 //create choice buttons
 for (var i=0; i< questions[index].choices.length; i++){
 var choiceButton = document.createElement("button");
+choiceButton.className= "choice-button";
 document.querySelector(".choice-container").appendChild(choiceButton);
 choiceButton.textContent = questions[index].choices[i]
 choiceButton.addEventListener("click", checkAnswer);
 }
 }
 function checkAnswer(event){
-var correctAnswer = questions[index].answer
-var clickedAnswer = event.target.textContent
+var correctAnswer = questions[index].answer;
+correctAnswer.className ="correct-answer"
+var clickedAnswer = event.target.textContent;
 if (correctAnswer === clickedAnswer){
-    console.log("correct");
+
 }
 else{
-    console.log("false");
+    timeSeconds= timeSeconds - 10;
+
 }
 questionEl.innerHTML="";
 choiceEl.innerHTML ="";
 index++;
 displayQuestion();
-//display time out
 }
 //loop through array questions and answers
 function showNextQuestion(questions){
@@ -85,4 +88,20 @@ function showNextQuestion(questions){
          questionEl= questions[index].question;
          choiceEl = questions[index].choices;
     }
+}
+function countDown(){
+timeInterval= setInterval (function(){
+    if (timeSeconds >1){
+    countDownEl.textContent = timeSeconds + " seconds left";
+    timeSeconds--;
+    }
+    else if(timeSeconds === 1){
+        countDownEl.textContent = timeSeconds + " second left";
+        timeSeconds--;
+    }
+    else {
+        countDownEl.textContent ='TIME UP!';
+    }
+
+}, 1000)
 }

@@ -53,12 +53,6 @@ header p{
     width:100%;
     margin: 20px;
 }
-{
-    background-color: green;
-}
-.choice-button.wrong{
-    background-color: red;
-}
 #hide{
     display: none;
 }
@@ -66,6 +60,32 @@ header p{
 footer{
     background-color: cornflowerblue;
     color:bisque;
-    font-size: 30px;
+   margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+footer p{
+    font-size: 25px;
+    margin-left: 20px;
+}
+.high-score{
+   display: none;
+    
+}
+#high-scores-btn{
+    background-color: bisque;
+    color: cornflowerblue;
+    font-size: 20px;
     margin: 20px;
+}
+#high-scores-btn a{
+    text-decoration: none;
+    color: cornflowerblue;
+}
+.high-scores{
+    background-color: cornflowerblue;
+    height: 100px;
+    padding: 30px 0;
+    margin:20px;
 }

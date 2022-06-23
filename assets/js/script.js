@@ -1,16 +1,17 @@
 //Global Variables\
-var highScore = undefined;
+var score= "";
 var startButtonEl = document.querySelector("#start-quiz");
+var highScoreEl = document.querySelector(".high-score");
 var questionContainerEl = document.querySelector(".question-container");
 var welcomePageEl = document.querySelector(".welcome-page");
 startButtonEl.addEventListener("click", startGame);
 var questionEl = document.querySelector("#question");
 var choiceEl = document.querySelector(".choice-container");
-var timeSeconds = 60;
+var timeInterval;
+var time;
 var index = 0;
 var countDownEl= document.querySelector('#count-down');
-
-
+var questionCounter=0;
 
 //Questions array
 var questions = [
@@ -45,17 +46,16 @@ var questions = [
 //Game question appears and timer starts
 function startGame () {
     questionContainerEl.style.display = "block";
-    welcomePageEl.style.display= "none";
+    welcomePageEl.remove();
+    timeSeconds= 60;
     displayQuestion();
     countDown();
-   
 };
 function displayQuestion(){
 //create question
 var questionEl= document.createElement("h2");
-questionEl.innerHTML = questions[index].question;
+questionEl.textContent = questions[index].question;
 document.getElementById("question").appendChild(questionEl);
-
 
 //create choice buttons
 for (var i=0; i< questions[index].choices.length; i++){
@@ -65,30 +65,32 @@ document.querySelector(".choice-container").appendChild(choiceButton);
 choiceButton.textContent = questions[index].choices[i]
 choiceButton.addEventListener("click", checkAnswer);
 }
-}
+};
+
 function checkAnswer(event){
 var correctAnswer = questions[index].answer;
-correctAnswer.className ="correct-answer"
 var clickedAnswer = event.target.textContent;
 if (correctAnswer === clickedAnswer){
-
+ score++;
+saveScore();
 }
 else{
-    timeSeconds= timeSeconds - 10;
-
+    timeSeconds = timeSeconds - 10;
 }
 questionEl.innerHTML="";
 choiceEl.innerHTML ="";
 index++;
 displayQuestion();
-}
+};
 //loop through array questions and answers
 function showNextQuestion(questions){
     for (var i=0; i < questions[index].length; i++){
          questionEl= questions[index].question;
          choiceEl = questions[index].choices;
     }
-}
+    clearInterval(timeInterval);
+   
+};
 function countDown(){
 timeInterval= setInterval (function(){
     if (timeSeconds >1){
@@ -101,7 +103,22 @@ timeInterval= setInterval (function(){
     }
     else {
         countDownEl.textContent ='TIME UP!';
+        endQuiz();
     }
 
 }, 1000)
+
 }
+//save score to local storage
+var saveScore = function(){
+    localStorage.setItem("score", JSON.stringify(score));
+};
+//retrieve score from local storage
+var getScore = function(){
+    localStorage.getItem("score", JSON.parse(score));
+};
+//function to end the quiz
+function endQuiz(){
+highScoreEl.setAttribute("style", "visibility: visible");
+questionContainerEl.classList.add('hide');
+ };
